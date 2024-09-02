@@ -3,6 +3,7 @@ package jsl.com.producer;
 
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
@@ -23,7 +24,7 @@ public class IntroProducer {
                 ENABLE_IDEMPOTENCE_CONFIG, true
         );
 
-        try(var producer = new KafkaProducer<String, String>(configuration)) {
+        try(Producer<String, String> producer = new KafkaProducer<>(configuration)) {
             while (true) {
                 var key = "key";
                 var value = LocalDateTime.now().format(DateTimeFormatter.ofPattern("E MMM yyyy HH:mm:ss"));

@@ -1,5 +1,6 @@
 package jsl.com.consumer;
 
+import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
@@ -22,7 +23,7 @@ public class IntroConsumer {
                 ENABLE_AUTO_COMMIT_CONFIG, false
         );
 
-        try(var consumer = new KafkaConsumer<String, String>(configuration)) {
+        try(Consumer<String, String> consumer = new KafkaConsumer<String, String>(configuration)) {
             consumer.subscribe(Set.of(topic));
 
             while (true) {
