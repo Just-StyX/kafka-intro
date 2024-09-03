@@ -1,2 +1,6 @@
-rootProject.name = 'introduction'
-
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
