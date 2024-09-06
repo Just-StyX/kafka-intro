@@ -1,0 +1,30 @@
+services:
+  shop-inn-postgres:
+    container_name: student-account
+    image: postgres
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: student_account
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgres/data
+    networks:
+      - student-network
+
+  mail-dev:
+    container_name: mail-dev
+    image: maildev/maildev
+    ports:
+      - 1080:1080
+      - 1025:1025
+
+
+networks:
+  student-network:
+    driver: bridge
+
+volumes:
+  postgres:
+    driver: local

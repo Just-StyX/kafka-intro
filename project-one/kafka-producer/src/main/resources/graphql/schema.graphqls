@@ -1,0 +1,17 @@
+type Student {
+    studentNumber: String
+    firstname: String
+    lastname: String
+    email: String
+    courses: [Course]
+}
+
+type Course {
+    courseName: String
+    courseTitle: String
+    creditHours: Int
+}
+
+type Query {
+    findStudentByNumber(number: String): Student
+}
